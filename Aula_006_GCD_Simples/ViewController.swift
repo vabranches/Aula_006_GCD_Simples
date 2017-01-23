@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Aula_006_GCD_Simples
-//
-//  Created by Swift on 23/01/17.
-//  Copyright © 2017 Swift. All rights reserved.
-//
 
 import UIKit
 
@@ -12,12 +5,27 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK: ACTIONS
+    @IBAction func processarMain(_ sender: UIButton) {
+        
+        for p in 1...5{
+            print("processando Main \(p)")
+            Thread.sleep(forTimeInterval: 1.0)
+        }
+        
+        
+    }
+
+    @IBAction func processarGCD(_ sender: UIButton) {
+        DispatchQueue.global().async {
+            for p in 1...5{
+                print("processando GCD \(p)")
+                Thread.sleep(forTimeInterval: 1.0)
+            }
+        }   
     }
 
 
